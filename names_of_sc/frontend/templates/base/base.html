@@ -1,0 +1,34 @@
+<html>
+  {% load static %}
+  <head>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+  </head>
+  <body>
+    <!-- Div for the Header -->
+    <div id="header">
+      <p id="title">Names of SC</p> 
+    </div>
+    <div id="nav-bar">
+      <div class="nav-item">
+        <a href="/" >Home</a>
+      </div>   
+      <div class="nav-item">
+        <a href="/map">Map</a>
+      </div>   
+      <div class="nav-item">
+        <a href="/regions">Regions</a>
+      </div>
+      <div class="nav-item">
+        <a href="counties">Counties</a>
+      </div>
+      <div class="nav-item">
+        <a href="authors">Authors</a>
+      </div>
+    </div>
+    <!-- Div for the Body -->
+    <div id="body"> 
+      {% block body %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

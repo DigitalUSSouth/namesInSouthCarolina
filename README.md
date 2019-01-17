@@ -29,7 +29,7 @@
   ```
   - This migrates the local db (will not use sqlite3 in production) for local
     testing as well as starts the built-in Django test server.
-  - At this point, go to your web browser and go to [localhost](https://localhost:8000)
+  - At this point, go to your web browser and go to [localhost](http://localhost:8000)
   - You should see the current working version, and can modify the
     templates and static files to get responses. Be wary that modifying the
     views folder can disrupt the running webserver and crash the application.

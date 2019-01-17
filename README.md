@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Names of SC
 ## A website that tells the stories of odd names in SC
 
@@ -38,6 +37,4 @@
     ```
     pipenv run names_of_sc/manage.py runserver
     ```
-=======
-# namesInSouthCarolina
->>>>>>> 889a438769b943793bb734500616784152ce244e
+    

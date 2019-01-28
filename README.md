@@ -24,7 +24,7 @@
 
 - You will want to have sample data to work with, this can be done in two ways.
   - If you are running a Unix/GNU-Linux/Shell environment, you can use the 
-    premade script that I made using:
+    custom script using:
     ```shell
     $ ./utils/loaddatabase.sh
     ```

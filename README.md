@@ -18,7 +18,7 @@
 
 - First, run
   ```
-  pipenv sync
+  $ pipenv sync
   ```
   This will ensure that your Pipfile is updated and is ready for your system.
 
@@ -31,13 +31,13 @@
   - If you aren't using a shell environment or want to do it the Pythonic way,
     you can use the following command:
     ```
-    pipenv run names_of_sc/manage.py loaddata names_of_sc/frontend/fixtures/dump.json
+    $ pipenv run names_of_sc/manage.py loaddata names_of_sc/frontend/fixtures/dump.json
     ```
 
 - To run the Django application after syncing your Pipfile
   ```
-  pipenv run names_of_sc/manage.py migrate
-  pipenv run names_of_sc/manage.py runserver
+  $ pipenv run names_of_sc/manage.py migrate
+  $ pipenv run names_of_sc/manage.py runserver
   ```
   - This migrates the local db (will not use sqlite3 in production) for local
     testing as well as starts the built-in Django test server.
@@ -47,6 +47,6 @@
     views folder can disrupt the running webserver and crash the application.
     In this case, reload the application by entering `Ctrl+C` and running
     ```
-    pipenv run names_of_sc/manage.py runserver
+    $ pipenv run names_of_sc/manage.py runserver
     ```
     

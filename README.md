@@ -22,6 +22,18 @@
   ```
   This will ensure that your Pipfile is updated and is ready for your system.
 
+- You will want to have sample data to work with, this can be done in two ways.
+  - If you are running a Unix/GNU-Linux/Shell environment, you can use the 
+    premade script that I made using:
+    ```shell
+    $ ./utils/loaddatabase.sh
+    ```
+  - If you aren't using a shell environment or want to do it the Pythonic way,
+    you can use the following command:
+    ```
+    pipenv run names_of_sc/manage.py loaddata names_of_sc/frontend/fixtures/dump.json
+    ```
+
 - To run the Django application after syncing your Pipfile
   ```
   pipenv run names_of_sc/manage.py migrate

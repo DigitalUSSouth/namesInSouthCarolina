@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.views import View
 from django.urls import resolve
-
+from frontend.models import County, Region, PinPoint
 class MainPage(View):
     """ Main Page View Controller
     This class works as the main view controller for Names of SC.
@@ -33,10 +33,12 @@ class MainPage(View):
         return render(request, 'display/map.html', {})
 
     def Regions(self, request:dict) -> HttpResponse:
-        return render(request, 'display/regions.html', {})
+        regions = Region.objects.all()
+        return render(request, 'display/regions.html', {'regions': regions})
 
     def Counties(self, request:dict) -> HttpResponse:
-        return render(request, 'display/counties.html', {})
+        counties = County.objects.all()
+        return render(request, 'display/counties.html', {'counties': counties})
 
     def Authors(self, request:dict) -> HttpResponse:
         return render(request, 'display/authors.html', {})

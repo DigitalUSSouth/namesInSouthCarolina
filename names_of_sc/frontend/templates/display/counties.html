@@ -4,4 +4,8 @@
 
 {% block body %}
   <p>This is the Counties Page</p>
+
+  {% for c in counties %}
+    <p> {{c}} </p>
+  {% endfor %}
 {% endblock %}

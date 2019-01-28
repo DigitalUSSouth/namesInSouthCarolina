@@ -4,4 +4,8 @@
 
 {% block body %}
   <p>This is the regions Page</p>
+
+  {% for r in regions%}
+    <p>{{r}}</p>
+  {% endfor %}
 {% endblock %}

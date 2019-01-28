@@ -1,4 +1,5 @@
 <html>
+<meta name = "viewport" content="width= device-width, initial-scale = 1.0">
   {% load static %}
   <head>
       <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
@@ -8,27 +9,22 @@
     <div id="header">
       <p id="title">Names of SC</p> 
     </div>
-    <div id="nav-bar">
-      <div class="nav-item">
-        <a href="/" >Home</a>
-      </div>   
-      <div class="nav-item">
-        <a href="/map">Map</a>
-      </div>   
-      <div class="nav-item">
-        <a href="/regions">Regions</a>
-      </div>
-      <div class="nav-item">
-        <a href="counties">Counties</a>
-      </div>
-      <div class="nav-item">
-        <a href="authors">Authors</a>
-      </div>
+    <div class = "nav-bar">
+      <a href = "/">Home</a>
+      <a href="/map"> Map</a>
+      <a href="/regions">Regions</a>
+      <a href="/counties">Counties</a>
+      <a href="authors">Authors</a>
+      <input type = "text" placeholder = "Search.."> <!--need to make this useful -->
     </div>
+
     <!-- Div for the Body -->
     <div id="body"> 
       {% block body %}
       {% endblock %}
     </div>
   </body>
+  <!-- Footer that may be needed -->
+  <footer>
+  </footer>
 </html>

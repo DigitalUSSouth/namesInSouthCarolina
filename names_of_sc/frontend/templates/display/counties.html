@@ -1,11 +1,50 @@
 {% extends '../base/base.html' %}
-
 {% load static %}
+<head>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+<script type = "text/javascript" src = "Users/Brad/Documents/GitHub/namesInSouthCarolina/names_of_sc/frontend/fixture/dump.json">
+
+  /*  $(function() {
+
+
+   var counties = [];
+
+   $.getJSON('Users/Brad/Documents/GitHub/namesInSouthCarolina/names_of_sc/frontend/fixture/dump.json', function(data) {
+       $.each(data.fields, function(i, f) {
+          var tblRow = "<tr>" + "<td>" + f.name + "</td>" +
+           + "<td>" + f.region + "</td>" + "</tr>"
+           $(tblRow).appendTo("#userdata tbody");
+     });
+
+   });
+
+}); */
+obj = JSON.parse(dump.json);
+document.getElementById("test").innerHTML = obj.name[1];
+
+   </script>
+</head>
+
 
 {% block body %}
   <p>This is the Counties Page</p>
 
+  <table id = "userdata" border = "4">
+  	<thead>
+  		<th> Name </th>
+  		<th> Region</th>
+  	</thead>
+  	<tbody>
+  	</tbody>
+  </table>
+
+  <p id = "test"></p>
+
   {% for c in counties %}
-    <p> {{c}} </p>
-  {% endfor %}
+      <p id = "test"></p>
+
+
+{% endfor %}
+
 {% endblock %}

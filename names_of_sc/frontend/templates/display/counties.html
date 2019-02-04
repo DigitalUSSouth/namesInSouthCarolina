@@ -1,62 +1,20 @@
 {% extends '../base/base.html' %}
-
+<meta name = "viewport" content="width= device-width, initial-scale = 1.0">
+  {% load static %}
 <head>
 </head>
-{% load static %}
 
 {% block body %}
   <p>This is the Counties Page</p>
-
-  <table id = "userdata" border = "4">
-  	<thead>
-  		<th> Name </th>
-  		<th> Region</th>
-  	</thead>
-  	<tbody>
-  	</tbody>
-  </table>
-
-  
-<script></script>
-  <script>
-  	fetch('https://api.myjson.com/bins/dc2zk')
-  	.then(res => res.json())
-  	.then((out) => {
-  		console.log('Output: ', out);
-  	}).catch(err => console.error(err));
-
-
-  	var getJSON = function(url, callback){
-  		var xhr = new XMLHttpRequest();
-  		xhr.open('GET', url , true);
-  		xhr.responseType = 'json';
-
-  		xhr.onload = function() {
-  			var status = xhr.status;
-
-  			if (status == 200) {
-  				callback(null, xhr.response);
-  			} else {
-  				callback(status);
-  			}
-  		};
-  		xhr.send();
-  	};
-  	getJSON('https://api.myjson.com/bins/dc2zk', function(errr,data){
-  		if (errr != null) {
-  			console.error(errr);
-  		} else {
-  			var text = 'name: ${data.name}'
-
-  			console.log(text);
-  		}
-  	});
-   </script>
-   <p id = "test"></p>
-
-  {% for c in counties %}
-     
-
+      
+<table class = "ahh">
+{% for c in counties %}
+{% cycle '<tr>' '' '' '' %}
+	<td>{{c.name}}</td>
+{% cycle '' '' '' '</tr>' %}
 {% endfor %}
+</table>
 
 {% endblock %}
+
+

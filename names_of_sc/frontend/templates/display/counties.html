@@ -6,15 +6,33 @@
 
 {% block body %}
   <p>This is the Counties Page</p>
-      
+ <!-- creates a table of the information -->  
 <table class = "ahh">
+
 {% for c in counties %}
 {% cycle '<tr>' '' '' '' %}
+
+	<th>County</th>
 	<td>{{c.name}}</td>
+	<th> Region </th>
+	<td>{{c.region.name}}</td>
+
 {% cycle '' '' '' '</tr>' %}
 {% endfor %}
 </table>
 
+<!-- creates a list of the information -->
+<ul class = "boo" >
+	{% for c in counties %}
+	<li> {{c.name}} - {{c.region.name}} </li>
+{% endfor %}
+</ul> 
 {% endblock %}
+
+{% block managers %}
+{% searchmanager id = "search1" search = "index = _internal sourcetype = splunkd | head 1000" earliest_time = "-24h@h" 
+lastest_time = "now" cache = False preview = True %}
+
+{% endblock managers %}
 
 

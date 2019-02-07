@@ -3,9 +3,12 @@
 {% load static %}
 
 {% block body %}
-  <p>This is the regions Page</p>
+  <p>This is the Regions Page</p>
 
+<ul>
   {% for r in regions%}
-    <p>{{r}}</p>
+    <li>{{r.name}}</li>
   {% endfor %}
+
+ </ul>
 {% endblock %}

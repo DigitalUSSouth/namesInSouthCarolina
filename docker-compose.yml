@@ -1,0 +1,20 @@
+#*******************************************************************************
+# Names Of South Carolina Site docker-compose
+# Author: Judson James
+# Purpose: Docker helper file for building and deploying
+#*******************************************************************************
+
+version: "2"
+services:
+  django:
+    container_name: names_of_sc_django
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: names_of_sc_django
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/var/www/names_of_sc
+    ports:
+      - "8000:8000"

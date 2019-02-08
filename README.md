@@ -50,3 +50,12 @@
     $ pipenv run names_of_sc/manage.py runserver
     ```
     
+- Docker Instructions
+  - This project is using Docker as well as docker-compose for ease of commands. The following commands help with setup:
+    ```
+    # This command will build the docker container image on the local device
+    docker-compose build
+    
+    # This command will run the docker image with the latest push to the master branch
+    docker-compose up
+    ```

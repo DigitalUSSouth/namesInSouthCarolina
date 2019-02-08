@@ -23,16 +23,12 @@
 
 <!-- creates a list of the information -->
 <ul class = "boo" >
-	{% for c in counties %}
-	<li> {{c.name}} - {{c.region.name}} </li>
+{% for c in counties %}
+	<li> <a href= "/{{c.name}}"> {{c.name}} - {{c.region.name}} </a> </li>
 {% endfor %}
 </ul> 
+
+
 {% endblock %}
-
-{% block managers %}
-{% searchmanager id = "search1" search = "index = _internal sourcetype = splunkd | head 1000" earliest_time = "-24h@h" 
-lastest_time = "now" cache = False preview = True %}
-
-{% endblock managers %}
 
 

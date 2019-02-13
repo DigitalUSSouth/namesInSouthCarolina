@@ -9,25 +9,25 @@
  <!-- creates a table of the information -->  
 <table class = "ahh">
 
-{% for c in counties %}
-{% cycle '<tr>' '' '' '' %}
-
+{% for c in counties %}<!-- 
+{% cycle '<tr>' '' '' '' %} -->
+<tr>
 	<th>County</th>
-	<td>{{c.name}}</td>
+	<td> <a href="/{{c.name}}">{{c.name}}</td>
 	<th> Region </th>
-	<td>{{c.region.name}}</td>
-
-{% cycle '' '' '' '</tr>' %}
+	<td> <a href="/{{c.region.name}}">{{c.region.name}}</td>
+</tr>
+<!-- {% cycle '' '' '' '</tr>' %} -->
 {% endfor %}
 </table>
 
 <!-- creates a list of the information -->
-<ul class = "boo" >
+<!-- <ul class = "boo" >
 {% for c in counties %}
 	<li> <a href= "/{{c.name}}"> {{c.name}} - {{c.region.name}} </a> </li>
 {% endfor %}
 </ul> 
-
+ -->
 
 {% endblock %}
 

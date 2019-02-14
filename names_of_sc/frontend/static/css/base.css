@@ -1,22 +1,30 @@
 /*Edited by: brad, note sometimes cache in Google chrome doesn't allow for CSS changes*/
+
+/*start of general styling for all webpages */
 #header {
   background-color : rgb(0, 51, 102); /* resembles the SC state flag */
   width : 100%;
   height : 15vw;
 }
-
 #body {
   background-color : white;
   width : 100%;
   height : auto;
 }
-
 #title {
   font: sans-serif; /*something is overwriting this*/
   color : white;
   text-align : center;
   font-size:7vw; /*changes based on width of webpage*/
 }
+html {
+  background-color : gray;
+  width : auto;
+  height : 100%;
+}
+/*end of general styling*/
+
+/*start of navigation bar styling */
 .nav-bar {
   overflow: hidden;
   width : 100%;
@@ -25,13 +33,6 @@
   padding-top: 1vw;
   list-style-type: none;
 }
-
-html {
-  background-color : gray;
-  width : auto;
-  height : 100%;
-}
-
 .nav-bar a {
   display:block;
   float : left;
@@ -47,39 +48,43 @@ html {
   background-color: #4CAF50;
   color: white;
 }
-
+/*Styling for a search bar feature*/
 .nav-bar input[type = text] {
   float: right;
   padding: 1vw;
   border: none;
   margin-top: 2vw;
-
 }
-.ahh {
+/*end of navigation bar styling*/
+
+/*Start of styling for counties table */
+.cTable {
   border-collapse: collapse;
 }
-
-.ahh, th, td
+.cTable, th, td
 {
   table-layout: auto;
   border: 1px solid black;
   width: 50vw;
-  margin: auto;
- 
+  margin: auto; 
 }
-.ahh th {
+.cTable th {
   color: black;
 }
-
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+/*end of county table styling */
 
+/*start of map page styling*/
 #daMap{
   align-content: center;
   padding:2vw;
 }
+/*end of map page styling*/
 
+/*This piece of css helps to reformat the website based on the max width of the pixels
+for mobile users*/
 @media screen and (max-width: 600px)
 {
   .nav-bar{
@@ -91,7 +96,7 @@ tr:nth-child(even) {
     font-size: 3vw;
   }
 
-  .ahh,th,td
+  .cTable,th,td
   {
     font-size:3vw;
   }
@@ -107,3 +112,4 @@ margin-top: 0;
     width: auto;
   }
 }
+/*end of styling for mobile users */

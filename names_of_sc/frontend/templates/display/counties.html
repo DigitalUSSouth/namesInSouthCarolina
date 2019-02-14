@@ -6,23 +6,20 @@
 
 {% block body %}
   <p>This is the Counties Page</p>
- <!-- creates a table of the information -->  
-<table class = "ahh">
-
-{% for c in counties %}<!-- 
-{% cycle '<tr>' '' '' '' %} -->
+ <!-- creates a table displaying the counties and regions from a json file -->  
+<table class = "cTable">
+{% for c in counties %}
 <tr>
 	<th>County</th>
 	<td> <a href="/{{c.name}}">{{c.name}}</td>
 	<th> Region </th>
 	<td> <a href="/{{c.region.name}}">{{c.region.name}}</td>
 </tr>
-<!-- {% cycle '' '' '' '</tr>' %} -->
 {% endfor %}
 </table>
 
-<!-- creates a list of the information -->
-<!-- <ul class = "boo" >
+<!-- creates a list of the information. Commented out code and kept in case it is wanted -->
+<!-- <ul class = "cList" >
 {% for c in counties %}
 	<li> <a href= "/{{c.name}}"> {{c.name}} - {{c.region.name}} </a> </li>
 {% endfor %}

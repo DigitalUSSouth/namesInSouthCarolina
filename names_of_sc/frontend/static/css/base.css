@@ -36,10 +36,10 @@ html {
 .nav-bar a {
   display:block;
   float : left;
-  width : 9vw;
+  width : 12vw;
   text-align : center;
   font-weight: bold;
-  font-size:2vw;
+  font-size: 2vw;
 }
 .nav-bar a:hover {
   color: white;
@@ -54,6 +54,7 @@ html {
   padding: 1vw;
   border: none;
   margin-top: 2vw;
+  padding-left: 1vw;
 }
 /*end of navigation bar styling*/
 
@@ -79,7 +80,16 @@ tr:nth-child(even) {
 /*start of map page styling*/
 #daMap{
   align-content: center;
-  padding:2vw;
+  width: 600;
+}
+
+.flex-map {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.flex-map > div {
+  margin: 2em;
 }
 /*end of map page styling*/
 
@@ -110,6 +120,7 @@ margin-top: 0;
 
   #daMap{
     width: auto;
+    align-self:  left;
   }
 }
 /*end of styling for mobile users */

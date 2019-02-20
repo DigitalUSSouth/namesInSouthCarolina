@@ -26,7 +26,8 @@ RUN apt-get install -y \
 
 # Project Files and Settings
 WORKDIR /var/www
-RUN git clone https://github.com/DigitalUSSouth/namesInSouthCarolina
+# RUN git clone https://github.com/DigitalUSSouth/namesInSouthCarolina
+ADD . /var/www/namesInSouthCarolina
 RUN pip install -U pipenv
 WORKDIR /var/www/namesInSouthCarolina
 

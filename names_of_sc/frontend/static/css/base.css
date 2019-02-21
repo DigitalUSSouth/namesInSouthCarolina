@@ -85,7 +85,7 @@ tr:nth-child(even) {
 
 .flex-map {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
 }
 
 .flex-map > div {

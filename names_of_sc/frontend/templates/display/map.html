@@ -1,5 +1,11 @@
 <!-- To use google maps api, a key would need to be "purchased" from google
-This will act as a placeholder and show the direction until the issues can be resolved -->
+This will act as a placeholder and show the direction until the issues can be resolved 
+
+The script in this template creates a map object centered around the given coordinates (eventually SC), and listens
+for an update in the coordinates in order to create a new instance of the google map at that new point
+
+The page has a dropdown to pick a predetermined area (coordinates) determined by JSON file(s) with the name of the region 
+and coordinates,an update button to call the script, and below it the map inside an iframe-->
 
 {% extends '../base/base.html' %}
 

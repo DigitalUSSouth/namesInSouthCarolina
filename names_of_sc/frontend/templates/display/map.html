@@ -8,10 +8,11 @@ The page has a dropdown to pick a predetermined area (coordinates) determined by
 and coordinates,an update button to call the script, and below it the map inside an iframe-->
 
 {% extends '../base/base.html' %}
-
+<meta name = "viewport" content="width= device-width, initial-scale = 1.0">
 {% load static %}
 
 {% block body %}
+
 <script src = https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false></script>
 <script type="text/javascript">
 	var map;
@@ -29,9 +30,11 @@ and coordinates,an update button to call the script, and below it the map inside
 	}
 </script>
 
- <p>This is the map Page</p>
+ <p><em>This is the Map Page</em></p>
+
 <div class = "flex-map" >
 	<div class = "datDrop">
+
 	{% for m in maps %}
 	<button class = "dropbutt">Locations
 		<i class = "fa fa-caret-down"></i>
@@ -41,11 +44,14 @@ and coordinates,an update button to call the script, and below it the map inside
 </div>
 
 {% endfor %}
-<input type = "button" value="updateCenter" onClick="pan()"/>
+
+<input type = "button" value="updateMap" onClick="pan()"/>
 </div>
+
 <div>
 <iframe id ="daMap"></iframe>
 </div>
+
 </div>
 
 {% endblock %}

@@ -58,6 +58,26 @@ html {
 }
 /*end of navigation bar styling*/
 
+/*Start of Home page styling*/
+#aboutSite {
+  text-align: center;
+}
+
+#aboutTitle{
+  color: red;
+  font-size: 2vw;
+}
+
+#information {
+  text-align: center;
+}
+
+#informationTitle {
+  color: red;
+  font-size: 2vw;
+}
+/*end of Home page styling*/
+
 /*Start of styling for counties table */
 .cTable {
   border-collapse: collapse;

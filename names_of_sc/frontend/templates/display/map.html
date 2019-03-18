@@ -13,8 +13,9 @@ and coordinates,an update button to call the script, and below it the map inside
 
 {% block body %}
 
-<script src = https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false></script>
+<script aysnc defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIrp9See4o2N7lr-TcPY_M8dlineBlI3A&callback=initialize"></script>
 <script type="text/javascript">
+
 	var map;
 	function initialize(){
 		var mapOptions = {
@@ -40,7 +41,7 @@ and coordinates,an update button to call the script, and below it the map inside
 		<i class = "fa fa-caret-down"></i>
 	</button>
 	<div class = "dropdown-content">
-	<a href = "/{{m.LatLng}}">{{m.map}}</a> 
+	<a href = "/{{m.name}}">{{m.name}}</a> 
 </div>
 
 {% endfor %}
@@ -48,8 +49,7 @@ and coordinates,an update button to call the script, and below it the map inside
 <input type = "button" value="updateMap" onClick="pan()"/>
 </div>
 
-<div>
-<iframe id ="daMap"></iframe>
+<div id =:daMap">
 </div>
 
 </div>

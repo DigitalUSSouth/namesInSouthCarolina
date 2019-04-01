@@ -13,15 +13,12 @@ and coordinates,an update button to call the script, and below it the map inside
 
 {% block body %}
 
-<script aysnc defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIrp9See4o2N7lr-TcPY_M8dlineBlI3A&callback=initialize"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIrp9See4o2N7lr-TcPY_M8dlineBlI3A&callback=initialize"></script>
 <script type="text/javascript">
 
 	var map;
 	function initialize(){
-	map = new google.maps.Map(document.getElementById('flex-map'), {
-  center: {lat: -34.397, lng: 150.644},
-  zoom: 8
-});
+		 center = (-34.397, 150.644)
 	}
 
 	google.maps.event.addDomListener(window, 'load', initialize());

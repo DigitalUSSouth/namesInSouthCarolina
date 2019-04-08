@@ -10,27 +10,23 @@ and coordinates,an update button to call the script, and below it the map inside
 {% extends '../base/base.html' %}
 <meta name = "viewport" content="width= device-width, initial-scale = 1.0">
 {% load static %}
+<head>
+</head>
 
 {% block body %}
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIrp9See4o2N7lr-TcPY_M8dlineBlI3A&callback=initialize"></script>
+
 <script type="text/javascript">
 
 	var map;
-	function initialize(){
-		 center = (-34.397, 150.644)
+	function initMap(){
+		map = new google.map.Map(document.getElementById('flex-map'), {
+			center: {lat: -34.397, lng: 150.644}, zoom: 8
+		});
 	}
 
-	google.maps.event.addDomListener(window, 'load', initialize());
-	function pan() {
-		var e = document.getElementById("datDrop");
-		var choice1 = e.option[e.selectedIndex].lat;
-		var choice2 = e.option[e.selectedIndex].lon;
-		var panPoint = new google.maps.LatLng(choice1,choice2); 
-		//the names are temp
-		map.panTo(panPoint)
-	}
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIrp9See4o2N7lr-TcPY_M8dlineBlI3A&callback=initMap" async defer></script>
 
  <p><em>This is the Map Page</em></p>
 
@@ -39,18 +35,24 @@ and coordinates,an update button to call the script, and below it the map inside
 </div>
 
 <select id = "datDrop">
-{% for p in pinpoint %}
-<option>{{p.name}}</option>
 
-{% endfor %}
+<option disabled selected value> -- Choose a county -- </option>
+<option value ="test"> test </option>
+<option value ="test1"> test1</option>
+<option value ="test2"> test2</option>
+
+
 </select>
+
 
 <input type = "button" value="updateMap" onClick="pan()"/>
 </div>
+
 
 <div id =:daMap">
 </div>
 
 </div>
+</select>
 
 {% endblock %}

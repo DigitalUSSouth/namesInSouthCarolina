@@ -23,7 +23,11 @@ and coordinates,an update button to call the script, and below it the map inside
 
 	google.maps.event.addDomListener(window, 'load', initialize());
 	function pan() {
-		var panPoint = new google.maps.LatLng(document.getElementById("p.lat").value, document.getElementById("p.lon").value); //probably not the best way to get the lat and long values but no way currently to test it
+		var e = document.getElementById("datDrop");
+		var choice1 = e.option[e.selectedIndex].lat;
+		var choice2 = e.option[e.selectedIndex].lon;
+		var panPoint = new google.maps.LatLng(choice1,choice2); 
+		//the names are temp
 		map.panTo(panPoint)
 	}
 </script>
@@ -31,17 +35,15 @@ and coordinates,an update button to call the script, and below it the map inside
  <p><em>This is the Map Page</em></p>
 
 <div class = "flex-map" >
-	<div class = "datDrop">
-
-	{% for p in pinpoints %}
-	<button class = "dropbutt">Locations
-		<i class = "fa fa-caret-down"></i>
-	</button>
-	<div class = "dropdown-content">
-	<a href = "/{{p.name}}">{{p.name}}</a> 
+	
 </div>
 
+<select id = "datDrop">
+{% for p in pinpoint %}
+<option>{{p.name}}</option>
+
 {% endfor %}
+</select>
 
 <input type = "button" value="updateMap" onClick="pan()"/>
 </div>

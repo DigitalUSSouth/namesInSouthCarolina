@@ -1,4 +1,5 @@
 from django.db import models
+from .model_settings import ModelSettings as settings
 
 class PinPoint(models.Model):
     name = models.TextField(null=False, blank=False)

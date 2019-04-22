@@ -98,7 +98,7 @@ tr:nth-child(even) {
 /*end of county table styling */
 
 /*start of map page styling*/
-#daMap{
+#scMap{
   align-content: center;
   width: 600;
 }
@@ -138,7 +138,7 @@ margin:auto;
 margin-top: 0; 
   }
 
-  #daMap{
+  .flex-map{
     width: auto;
     align-self:  left;
   }

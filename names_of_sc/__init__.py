@@ -1,0 +1,1 @@
+from names_of_sc import wsgi

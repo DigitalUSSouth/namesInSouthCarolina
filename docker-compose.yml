@@ -2,19 +2,70 @@
 # Names Of South Carolina Site docker-compose
 # Author: Judson James
 # Purpose: Docker helper file for building and deploying
+#
+# The overall container structure goes as:
+# nginx
+#      | django
+#             | postgres
+# Where Nginx relies on Django, which relies on Postgres.
+# This ideally will service the 'Names' project in one consolidated package.
 #*******************************************************************************
 
-version: "2"
+version: "3.6"
 services:
+  #############################################################################
+  # The Django container relies on the Postgres container, and is the primary
+  # application that is ran.
   django:
-    container_name: names_of_sc_django
+    container_name: names_django
     build:
-      context: .
-      dockerfile: Dockerfile
-    image: names_of_sc_django
-    stdin_open: true
-    tty: true
+      context: ./names_of_sc
+      dockerfile: Dockerfile_Django
+    command: gunicorn names_of_sc.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      - .:/var/www/names_of_sc
+      - ./names_of_sc/:/usr/src/names_of_sc/
+      - static_volume:/usr/src/names_of_sc/static
     ports:
-      - "8000:8000"
+      - "8000"
+    environment:
+      - SECRET_KEY='k44wf(*gvti*1*i&zb#h6qsnoo2fu@e1@en3_rag6u6_=@7g=4'
+      - SQL_ENGINE=django.db.backends.postgresql
+      - SQL_DATABASE=postgres
+      - SQL_USER=postgres
+      - SQL_PASSWORD=postgres
+      - SQL_HOST=postgres_server
+      - SQL_PORT=5432
+      - DATABASE=postgres
+    depends_on:
+      - postgres_server
+  
+  #############################################################################
+  # Postgres Configurations
+  # We've included a containerized version of the postgres database for 
+  # testing. Ideally, this will link to the main database on AWS.
+  postgres_server:
+    container_name: names_postgres
+    image: postgres:10.5-alpine
+    volumes:
+      - postgres_data:/var/lib/postgressql/data/
+  
+  #############################################################################
+  # I've had success with Django+Gunicorn+Nginx with my personal site, so I 
+  # built out a similar configuration to have the Django application exposed
+  # to the specified port. Ideally this will be forwarded to the open web with
+  # the host web server.
+  nginx:
+    container_name: names_nginx
+    build: 
+      context: ./nginx
+      dockerfile: Dockerfile_Nginx
+    volumes:
+      - static_volume:/usr/src/names_of_sc/static
+    ports:
+      - "2019:80"
+    depends_on:
+      - django
+  
+volumes:
+  postgres_data:
+  static_volume:

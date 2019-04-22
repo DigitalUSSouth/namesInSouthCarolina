@@ -1,1 +1,7 @@
-pipenv run names_of_sc/manage.py loaddata names_of_sc/frontend/fixtures/dump.json
+#!/bin/sh
+#******************************************************************************
+# Author:  Judson James
+# Purpose: Simplicity command to load the database with a Django fixture in
+#          json format.
+#******************************************************************************
+docker exec names_django python3 manage.py loaddata frontend/fixtures/dump.json

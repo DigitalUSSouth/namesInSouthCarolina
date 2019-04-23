@@ -1,7 +1,7 @@
 # Names of SC
 ## A website that tells the stories of odd names in SC
 
-README.md updated on 04.21.2019, for older versions, use [the old README.md](link)
+README.md updated on 04.21.2019, for older versions, use [the old README.md](https://github.com/DigitalUSSouth/namesInSouthCarolina/blob/master/old/old_readme.txt)
 
 ### Prerequisites
 - [Docker](https://docs.docker.com/) 

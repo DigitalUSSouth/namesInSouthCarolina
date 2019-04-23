@@ -8,8 +8,9 @@ The page has a dropdown to pick a predetermined area (coordinates) determined by
 and coordinates,an update button to call the script, and below it the map inside an iframe-->
 
 {% extends '../base/base.html' %}
-<meta name = "viewport" content="width= device-width, initial-scale = 1.0">
+<meta name="viewport" content="width= device-width, initial-scale = 1.0">
 {% load static %}
+
 <head>
 </head>
 
@@ -17,50 +18,51 @@ and coordinates,an update button to call the script, and below it the map inside
 
 
 <script type="text/javascript">
+	function initMap() {
+		var mapProp = {
+			center: new google.maps.LatLng(34.0007, 81.0348),
+			zoom: 5,
+		};
 
-	function initMap(){
-		var mapProp= {
-			center:new google.maps.LatLng(34.0007,81.0348),zoom:5,};
-		
 
-		var map = new google.maps.Map(document.getElementById("flex-map"),mapProp
-		);
+		var map = new google.maps.Map(document.getElementById("flex-map"), mapProp);
 	}
 	google.maps.event.addDomListener(window, 'load', initialize)
+
 	function pan() {
 		var e = document.getElementById("locBar");
 		var choice1 = e.option[e.selectedIndex].lat;
 		var choice2 = e.option[e.selectedIndex].lon;
-		var panPoint = new google.maps.LatLng(choice1,choice2); 
+		var panPoint = new google.maps.LatLng(choice1, choice2);
 		//the names are temp
 		map.panTo(panPoint)
 	}
-
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIrp9See4o2N7lr-TcPY_M8dlineBlI3A&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIrp9See4o2N7lr-TcPY_M8dlineBlI3A&callback=initMap" async
+	defer></script>
 
- <p><em>This is the Map Page</em></p>
+<p><em>This is the Map Page</em></p>
 
-<div class = "flex-map" >
-	
+<div class="flex-map">
+
 </div>
 {% for p in pinpoints %}
-<select id = "locBar">
+<select id="locBar">
 
-	
 
-<option disabled selected value> -- Choose a county -- </option>
-<option>{{p.name}}</option>
+
+	<option disabled selected value> -- Choose a county -- </option>
+	<option>{{p.name}}</option>
 
 
 </select>
 {% endfor %}
 
-<input type = "button" value="updateMap" onClick="pan()"/>
+<input type="button" value="updateMap" onClick="pan()" />
 </div>
 
 
-<div id =:scMap">
+<div id=:scMap">
 </div>
 
 </div>

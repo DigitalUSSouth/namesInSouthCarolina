@@ -2,7 +2,9 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.views import View
 from django.urls import resolve
-from frontend.models import County, Region, PinPoint
+from ..models import County, Region, PinPoint
+
+
 class MainPage(View):
     """ Main Page View Controller
     This class works as the main view controller for Names of SC.
@@ -10,7 +12,7 @@ class MainPage(View):
     There is the standard GET and POST handler methods as well as
     functions that correlate to their path names in the urls.py
     """
-    def get(self, request:dict) -> HttpResponse:
+    def get(self, request: dict) -> HttpResponse:
         url_name = resolve(request.path_info).url_name
         if url_name == 'home':
             return self.Home(request) 
@@ -23,22 +25,23 @@ class MainPage(View):
         elif url_name == 'authors':
             return self.Authors(request)
    
-    def post(self, request:dict) -> HttpResponse:
+    def post(self, request: dict) -> HttpResponse:
         return HttpResponse("POST Response")
 
-    def Home(self, request:dict) -> HttpResponse:
+    def Home(self, request: dict) -> HttpResponse:
         return render(request, 'display/home.html', {})
 
-    def Map(self, request:dict) -> HttpResponse:
-        return render(request, 'display/map.html', {})
+    def Map(self, request: dict) -> HttpResponse:
+        pinpoints = PinPoint.objects.all()
+        return render(request, 'display/map.html', {'pinpoints': pinpoints})
 
-    def Regions(self, request:dict) -> HttpResponse:
+    def Regions(self, request: dict) -> HttpResponse:
         regions = Region.objects.all()
         return render(request, 'display/regions.html', {'regions': regions})
 
-    def Counties(self, request:dict) -> HttpResponse:
+    def Counties(self, request: dict) -> HttpResponse:
         counties = County.objects.all()
         return render(request, 'display/counties.html', {'counties': counties})
 
-    def Authors(self, request:dict) -> HttpResponse:
+    def Authors(self, request: dict) -> HttpResponse:
         return render(request, 'display/authors.html', {})

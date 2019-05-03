@@ -6,7 +6,7 @@
   <p>This is the authors Page</p>
 
   <ul>
-
+<!-- Creates a simple list of the authors by their names which are loaded in with a data file. This will not alphabetize them but rather just display as parsed. Clicking on a name will redirect the user to a landing page based on the author's name -->
   {% for a in authors%}
     <li><a href="/{{a.name}}">{{a.name}}</a></li>
   {% endfor %}

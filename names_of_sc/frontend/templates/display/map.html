@@ -18,6 +18,8 @@ and coordinates,an update button to call the script, and below it the map inside
 
 
 <script type="text/javascript">
+	//As the function name suggests, on load this function should run to create a google map at the given coordinates
+	//which is the center of Columbia,SC
 	function initMap() {
 		var mapProp = {
 			center: new google.maps.LatLng(34.0007, 81.0348),
@@ -28,7 +30,8 @@ and coordinates,an update button to call the script, and below it the map inside
 		var map = new google.maps.Map(document.getElementById("flex-map"), mapProp);
 	}
 	google.maps.event.addDomListener(window, 'load', initialize)
-
+	//Ran when the updateMap button is pressed, the pan function will grab the element from the dropdown bar and 
+	//find its long and lat to center the map to the point
 	function pan() {
 		var e = document.getElementById("locBar");
 		var choice1 = e.option[e.selectedIndex].lat;
@@ -46,6 +49,7 @@ and coordinates,an update button to call the script, and below it the map inside
 <div class="flex-map">
 
 </div>
+<!-- Code for creating the dropdown bar. Default is basic instructions while the options should be populated by the JSON or other data file that should have lat and long coordinates attached -->
 {% for p in pinpoints %}
 <select id="locBar">
 
@@ -57,7 +61,7 @@ and coordinates,an update button to call the script, and below it the map inside
 
 </select>
 {% endfor %}
-
+<!-- button for updating the map. This button is tied to the javascript function called pan -->
 <input type="button" value="updateMap" onClick="pan()" />
 </div>
 

@@ -13,7 +13,7 @@ Each county and region in the table is a clickable lick to a page based on that 
 {% block body %}
   <p><em>This is the Counties Page</em></p>
 
- <!-- creates a table displaying the counties and regions from a json file with each name and region a clickable link -->  
+ <!-- creates a table displaying the counties and regions from the data file(s) with each name and region a clickable link. The link sends the user to a landing page based on the name of the region or name of the county (whichever is pressed) -->  
 <table class = "cTable">
 
 {% for c in counties %}

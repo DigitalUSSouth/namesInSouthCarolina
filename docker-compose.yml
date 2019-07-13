@@ -38,6 +38,7 @@ services:
       - DATABASE=postgres
     depends_on:
       - postgres_server
+    restart: always
   
   #############################################################################
   # Postgres Configurations
@@ -48,6 +49,8 @@ services:
     image: postgres:10.5-alpine
     volumes:
       - postgres_data:/var/lib/postgressql/data/
+    restart: always
+
   
   #############################################################################
   # I've had success with Django+Gunicorn+Nginx with my personal site, so I 
@@ -65,6 +68,8 @@ services:
       - "2019:80"
     depends_on:
       - django
+    restart: always
+
   
 volumes:
   postgres_data:
